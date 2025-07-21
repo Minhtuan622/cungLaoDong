@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thu thập thông tin người từ 15 tuổi trở lên đang thực tế thường trú tại địa bàn</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-size: 0.9rem;
+            user-select: none;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            padding: 25px;
+        }
+        h1 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .form-section {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+        }
+        .form-section h5 {
+            color: #007bff;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .form-section h6 {
+            color: #495057;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .form-label {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #495057;
+            margin-bottom: 4px;
+        }
+        .form-control, .form-select {
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+        .form-check-label {
+            font-size: 0.85rem;
+        }
+        .btn {
+            font-size: 0.9rem;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .text-danger {
+            color: #dc3545 !important;
+        }
+        .mb-3 {
+            margin-bottom: 0.75rem !important;
+        }
+        .compact-row {
+            margin-bottom: 10px;
+        }
+        .compact-row .col-md-6, .compact-row .col-xl-3 {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        .section-divider {
+            border-top: 1px solid #dee2e6;
+            margin: 15px 0;
+        }
+        .priority-section {
+            background: #e8f4f8;
+            border-left-color: #17a2b8;
+        }
+        .education-section {
+            background: #f0f8e8;
+            border-left-color: #28a745;
+        }
+        .employment-section {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .dynamic-section {
+            background: #f8e8f0;
+            border-left-color: #e83e8c;
+        }
+        small {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+        .invalid-feedback {
+            font-size: 0.75rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">THÔNG TIN VỀ NGƯỜI LAO ĐỘNG</h1>
+    <p class="text-center mb-4" style="font-size: 0.9rem; color: #6c757d;">Vui lòng điền đầy đủ thông tin bên dưới</p>
+
+    <form id="laborForm" novalidate>
+        <!-- Thông tin cá nhân -->
+        <div class="form-section">
+            <h5>📋 Thông tin cá nhân</h5>
+            <div class="row compact-row">
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="ho_ten" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="ho_ten" required>
+                    <div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="ngay_sinh" class="form-label">Ngày sinh <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="ngay_sinh" required>
+                    <div class="invalid-feedback">Vui lòng chọn ngày sinh hợp lệ.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="gioi_tinh" class="form-label">Giới tính <span class="text-danger">*</span></label>
+                    <select class="form-select" id="gioi_tinh" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="1">Nam</option>
+                        <option value="0">Nữ</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn giới tính.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="cccd" class="form-label">Số CCCD <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="cccd" maxlength="12" required>
+                    <div class="invalid-feedback">Số CCCD phải là 12 chữ số.</div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+            <h6>📍 Địa chỉ thường trú <span class="text-danger">*</span></h6>
+            <div class="row compact-row">
+                <div class="col-md-4 mb-3">
+                    <label for="thuong_tru_tinh" class="form-label">Tỉnh/TP <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="thuong_tru_tinh" maxlength="10" required>
+                    <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="thuong_tru_phuongxa" class="form-label">Phường/Xã <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="thuong_tru_phuongxa" maxlength="10" required>
+                    <div class="invalid-feedback">Vui lòng nhập phường/xã.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="thuong_tru_diachichitiet" class="form-label">Địa chỉ chi tiết <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="thuong_tru_diachichitiet" maxlength="255" required>
+                    <div class="invalid-feedback">Vui lòng nhập địa chỉ chi tiết.</div>
+                </div>
+            </div>
+
+            <h6>🏠 Nơi ở hiện tại <small>(Chỉ điền nếu khác nơi thường trú)</small></h6>
+            <div class="row compact-row">
+                <div class="col-md-4 mb-3">
+                    <label for="tam_tru_tinh" class="form-label">Tỉnh/TP</label>
+                    <input type="text" class="form-control" id="tam_tru_tinh" maxlength="10">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="tam_tru_phuongxa" class="form-label">Phường/Xã</label>
+                    <input type="text" class="form-control" id="tam_tru_phuongxa" maxlength="10">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="tam_tru_diachichitiet" class="form-label">Địa chỉ chi tiết</label>
+                    <input type="text" class="form-control" id="tam_tru_diachichitiet" maxlength="255">
+                </div>
+            </div>
+        </div>
+
+        <!-- Đối tượng ưu tiên -->
+        <div class="form-section priority-section">
+            <h5>⭐ Đối tượng ưu tiên</h5>
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="khuyt_tat">
+                        <label class="form-check-label" for="khuyt_tat">Người khuyết tật</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ho_ngheo">
+                        <label class="form-check-label" for="ho_ngheo">Thuộc hộ nghèo, cận nghèo</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="dan_toc" onchange="toggleEthnicityField()">
+                        <label class="form-check-label" for="dan_toc">Dân tộc thiểu số</label>
+                    </div>
+                </div>
+            </div>
+            <div id="dan_toc_ten" style="display: none;">
+                <div class="col-md-6">
+                    <label for="ten_dan_toc" class="form-label">Tên dân tộc</label>
+                    <input type="text" class="form-control" id="ten_dan_toc">
+                    <div class="invalid-feedback">Vui lòng nhập tên dân tộc.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trình độ giáo dục -->
+        <div class="form-section education-section">
+            <h5>🎓 Trình độ giáo dục</h5>
+            <div class="row compact-row">
+                <div class="col-lg-4 mb-3">
+                    <label for="trinh_do_pho_thong" class="form-label">Trình độ phổ thông</label>
+                    <select class="form-select" id="trinh_do_pho_thong" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="Chưa hoàn thành tiểu học">Chưa hoàn thành tiểu học</option>
+                        <option value="Hoàn thành tiểu học">Hoàn thành tiểu học</option>
+                        <option value="Hoàn thành trung học cơ sở">Hoàn thành THCS</option>
+                        <option value="Hoàn thành trung học phổ thông">Hoàn thành THPT</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn trình độ phổ thông.</div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <label for="trinh_do_chuyen_mon" class="form-label">Trình độ chuyên môn <span class="text-danger">*</span></label>
+                    <select class="form-select" id="trinh_do_chuyen_mon" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="Chưa qua đào tạo">Chưa qua đào tạo</option>
+                        <option value="CNKT không có bằng">CNKT không có bằng</option>
+                        <option value="Chứng chỉ nghề dưới 3 tháng">CC nghề < 3 tháng</option>
+                        <option value="Sơ cấp">Sơ cấp</option>
+                        <option value="Trung cấp">Trung cấp</option>
+                        <option value="Cao đẳng">Cao đẳng</option>
+                        <option value="Đại học">Đại học</option>
+                        <option value="Trên đại học">Trên đại học</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn trình độ chuyên môn.</div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <label for="chuyen_nganh" class="form-label">Chuyên ngành <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="chuyen_nganh" required>
+                    <div class="invalid-feedback">Vui lòng nhập chuyên ngành.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tình trạng việc làm -->
+        <div class="form-section employment-section">
+            <h5>💼 Tình trạng tham gia hoạt động kinh tế <span class="text-danger">*</span></h5>
+            <div class="row compact-row">
+                <div class="col-md-6 mb-3">
+                    <label for="tinh_trang_viec_lam" class="form-label">Tình trạng</label>
+                    <select class="form-select" id="tinh_trang_viec_lam" onchange="toggleEmploymentDetails()" required>
+                        <option value="">-- Chọn tình trạng --</option>
+                        <option value="Có việc làm">Có việc làm</option>
+                        <option value="Thất nghiệp">Thất nghiệp</option>
+                        <option value="Không tham gia">Không tham gia hoạt động kinh tế</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn tình trạng việc làm.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections động -->
+        <div class="form-section dynamic-section" id="employed-section" style="display: none;">
+            <h5>✅ Người có việc làm</h5>
+            <div class="row compact-row">
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="vi_tri_viec_lam" class="form-label">Vị thế việc làm <span class="text-danger">*</span></label>
+                    <select class="form-select" id="vi_tri_viec_lam" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="Chủ cơ sở SXKD">Chủ cơ sở SXKD</option>
+                        <option value="Tự làm">Tự làm</option>
+                        <option value="Lao động gia đình">Lao động gia đình</option>
+                        <option value="Làm công ăn lương">Làm công ăn lương</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn vị thế việc làm.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="cong_viec" class="form-label">Công việc cụ thể <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="cong_viec" required>
+                    <div class="invalid-feedback">Vui lòng nhập công việc cụ thể.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="noi_lam_viec" class="form-label">Nơi làm việc <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="noi_lam_viec" required>
+                    <div class="invalid-feedback">Vui lòng nhập nơi làm việc.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="lam_viec_tinh" class="form-label">Tỉnh/TP làm việc <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lam_viec_tinh" maxlength="10" required>
+                    <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
+                </div>
+            </div>
+            <div class="row compact-row">
+                <div class="col-md-6 mb-3">
+                    <label for="lam_viec_phuongxa" class="form-label">Phường/Xã làm việc <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lam_viec_phuongxa" maxlength="10" required>
+                    <div class="invalid-feedback">Vui lòng nhập phường/xã.</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="lam_viec_diachichitiet" class="form-label">Địa chỉ chi tiết làm việc <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lam_viec_diachichitiet" maxlength="255" required>
+                    <div class="invalid-feedback">Vui lòng nhập địa chỉ chi tiết.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section dynamic-section" id="unemployed-section" style="display: none;">
+            <h5>🔍 Người thất nghiệp</h5>
+            <div class="row compact-row">
+                <div class="col-md-4 mb-3">
+                    <label for="thoi_gian_that_nghiep" class="form-label">Thời gian thất nghiệp <span class="text-danger">*</span></label>
+                    <select class="form-select" id="thoi_gian_that_nghiep" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="Dưới 3 tháng">Dưới 3 tháng</option>
+                        <option value="Từ 3 tháng đến 1 năm">Từ 3 tháng đến 1 năm</option>
+                        <option value="Trên 1 năm">Trên 1 năm</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn thời gian thất nghiệp.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="nhu_cau_viec_lam" class="form-label">Nhu cầu việc làm <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nhu_cau_viec_lam" required>
+                    <div class="invalid-feedback">Vui lòng nhập nhu cầu việc làm.</div>
+                </div>
+                <div class="col-md-4 mb-3 d-flex align-items-end">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="da_tung_lam_viec">
+                        <label class="form-check-label" for="da_tung_lam_viec">Đã từng làm việc</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section dynamic-section" id="not-participating-section" style="display: none;">
+            <h5>➖ Không tham gia hoạt động kinh tế</h5>
+            <div class="row compact-row">
+                <div class="col-md-6 mb-3">
+                    <label for="ly_do" class="form-label">Lý do không tham gia <span class="text-danger">*</span></label>
+                    <select class="form-select" id="ly_do" onchange="toggleStudyFields()" required>
+                        <option value="">-- Chọn lý do --</option>
+                        <option value="Đi học">Đi học</option>
+                        <option value="Hưu trí">Hưu trí</option>
+                        <option value="Nội trợ">Nội trợ</option>
+                        <option value="Khuyết tật">Khuyết tật</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn lý do.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section dynamic-section" id="study-fields" style="display: none;">
+            <h5>📚 Người đang đi học</h5>
+            <div class="row compact-row">
+                <div class="col-lg-4 mb-3">
+                    <label for="trinh_do_dao_tao" class="form-label">Trình độ đào tạo <span class="text-danger">*</span></label>
+                    <select class="form-select" id="trinh_do_dao_tao" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="Chứng chỉ nghề dưới 3 tháng">CC nghề < 3 tháng</option>
+                        <option value="Sơ cấp">Sơ cấp</option>
+                        <option value="Trung cấp">Trung cấp</option>
+                        <option value="Cao đẳng">Cao đẳng</option>
+                        <option value="Đại học">Đại học</option>
+                        <option value="Trên đại học">Trên đại học</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn trình độ đào tạo.</div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <label for="chuyen_nganh_dao_tao" class="form-label">Chuyên ngành đào tạo <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="chuyen_nganh_dao_tao" required>
+                    <div class="invalid-feedback">Vui lòng nhập chuyên ngành đào tạo.</div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <label for="ngay_tot_nghiep" class="form-label">Dự kiến tốt nghiệp <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="ngay_tot_nghiep" required>
+                    <div class="invalid-feedback">Vui lòng chọn ngày tốt nghiệp hợp lệ.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="text-center pt-3">
+            <button type="submit" class="btn btn-primary me-2">💾 Lưu</button>
+            <button type="button" class="btn btn-danger me-2" onclick="deleteEmployee()">🗑️ Xóa</button>
+            <button type="button" class="btn btn-secondary">❌ Thoát</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Toggle hiển thị trường dân tộc
+    function toggleEthnicityField() {
+        const checkbox = document.getElementById('dan_toc');
+        const field = document.getElementById('dan_toc_ten');
+        field.style.display = checkbox.checked ? 'block' : 'none';
+    }
+
+    // Toggle các section theo tình trạng việc làm
+    function toggleEmploymentDetails() {
+        const status = document.getElementById('tinh_trang_viec_lam').value;
+
+        // Ẩn tất cả sections
+        document.getElementById('employed-section').style.display = 'none';
+        document.getElementById('unemployed-section').style.display = 'none';
+        document.getElementById('not-participating-section').style.display = 'none';
+        document.getElementById('study-fields').style.display = 'none';
+
+        // Hiển thị section phù hợp
+        if (status === 'Có việc làm') {
+            document.getElementById('employed-section').style.display = 'block';
+        } else if (status === 'Thất nghiệp') {
+            document.getElementById('unemployed-section').style.display = 'block';
+        } else if (status === 'Không tham gia') {
+            document.getElementById('not-participating-section').style.display = 'block';
+        }
+    }
+
+    // Toggle trường học tập
+    function toggleStudyFields() {
+        const reason = document.getElementById('ly_do').value;
+        const studyFields = document.getElementById('study-fields');
+        studyFields.style.display = reason === 'Đi học' ? 'block' : 'none';
+    }
+
+    // Xóa dữ liệu
+    function deleteEmployee() {
+        if (confirm('Bạn có chắc chắn muốn xóa tất cả thông tin đã nhập?')) {
+            document.getElementById('laborForm').reset();
+            toggleEmploymentDetails();
+            toggleEthnicityField();
+        }
+    }
+
+    // Validation form
+    document.getElementById('laborForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (this.checkValidity()) {
+            alert('Thông tin đã được lưu thành công!');
+        } else {
+            this.classList.add('was-validated');
+        }
+    });
+
+    // Validate ngày sinh (phải >= 15 tuổi)
+    document.getElementById('ngay_sinh').addEventListener('change', function() {
+        const birthDate = new Date(this.value);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+
+        if (age < 15) {
+            this.setCustomValidity('Chỉ thu thập thông tin người từ 15 tuổi trở lên');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+
+    // Validate CCCD (12 chữ số)
+    document.getElementById('cccd').addEventListener('input', function() {
+        const cccd = this.value.replace(/\D/g, '');
+        this.value = cccd;
+
+        if (cccd.length !== 12) {
+            this.setCustomValidity('Số CCCD phải là 12 chữ số');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+
+    // Validate ngày tốt nghiệp (phải trong tương lai)
+    document.getElementById('ngay_tot_nghiep').addEventListener('change', function() {
+        const gradDate = new Date(this.value);
+        const today = new Date();
+
+        if (gradDate <= today) {
+            this.setCustomValidity('Thời gian tốt nghiệp phải trong tương lai');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+</script>
+</body>
+</html>

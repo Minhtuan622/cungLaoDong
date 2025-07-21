@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thu thập thông tin người từ 15 tuổi trở lên đang thực tế thường trú tại địa bàn</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="user-select-none">
+<div class="container my-4">
+    <header class="text-center mb-4">
+        <h1>THÔNG TIN VỀ NGƯỜI LAO ĐỘNG</h1>
+        <p class="text-muted">Vui lòng điền đầy đủ thông tin bên dưới.</p>
+    </header>
+    <form id="laborForm" novalidate>
+        <section class="form-section">
+            <h5>Thông tin cá nhân</h5>
+            <div class="row">
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="ho_ten" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="ho_ten" required>
+                    <div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="ngay_sinh" class="form-label">Ngày sinh <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="ngay_sinh" required>
+                    <div class="invalid-feedback">Vui lòng chọn ngày sinh hợp lệ (người từ 15 tuổi trở lên).</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="gioi_tinh" class="form-label">Giới tính <span class="text-danger">*</span></label>
+                    <select class="form-select" id="gioi_tinh" required>
+                        <option value="">-- Chọn giới tính --</option>
+                        <option value="1">Nam</option>
+                        <option value="0">Nữ</option>
+                    </select>
+                    <div class="invalid-feedback">Vui lòng chọn giới tính.</div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-3">
+                    <label for="cccd" class="form-label">Số CCCD <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="cccd" maxlength="12" required>
+                    <div class="invalid-feedback">Số CCCD phải là 12 chữ số.</div>
+                </div>
+            </div>
+            <div class="address-section">
+                <h6 class="mb-3">Tra cứu đơn vị hành chính mới</h6>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="danh_muc_cu" class="form-label">Cũ</label>
+                        <input type="text" class="form-control" id="danh_muc_cu" required>
+                        <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="danh_muc_moi" class="form-label">Mới</label>
+                        <input type="text" class="form-control" id="danh_muc_moi" disabled>
+                        <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="address-section">
+                <h6 class="mb-3">Địa chỉ thường trú <span class="text-danger">*</span></h6>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="thuong_tru_tinh" class="form-label">Tỉnh/Thành phố <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="thuong_tru_tinh" required>
+                        <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="thuong_tru_phuongxa" class="form-label">Phường/Xã <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="thuong_tru_phuongxa" required>
+                        <div class="invalid-feedback">Vui lòng nhập phường/xã.</div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="thuong_tru_diachichitiet" class="form-label">Địa chỉ chi tiết <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="thuong_tru_diachichitiet" maxlength="255" required>
+                        <div class="invalid-feedback">Vui lòng nhập địa chỉ chi tiết.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="address-section">
+                <div class="mb-3">
+                    <h6 class="mb-0">Nơi ở hiện tại</h6>
+                    <small class="text-muted">(Chỉ thu thập nếu khác nơi đăng ký thường trú)</small>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="tam_tru_tinh" class="form-label">Tỉnh/Thành phố</label>
+                        <input type="text" class="form-control" id="tam_tru_tinh">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="tam_tru_phuongxa" class="form-label">Phường/Xã</label>
+                        <input type="text" class="form-control" id="tam_tru_phuongxa">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="tam_tru_diachichitiet" class="form-label">Địa chỉ chi tiết</label>
+                        <input type="text" class="form-control" id="tam_tru_diachichitiet" maxlength="255">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h5>Đối tượng ưu tiên (nếu có)</h5>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="khuyt_tat">
+                        <label class="form-check-label" for="khuyt_tat">Người khuyết tật</label>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="ho_ngheo">
+                        <label class="form-check-label" for="ho_ngheo">Thuộc hộ nghèo, cận nghèo</label>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="dan_toc" onchange="toggleEthnicityField()">
+                        <label class="form-check-label" for="dan_toc">Dân tộc thiểu số</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3" id="dan_toc_ten" style="display: none;">
+                <label for="ten_dan_toc" class="form-label">Tên dân tộc</label>
+                <input type="text" class="form-control" id="ten_dan_toc">
+                <div class="invalid-feedback">Vui lòng nhập tên dân tộc.</div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h5>Trình độ giáo dục</h5>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label for="trinh_do_pho_thong" class="form-label">Trình độ phổ thông <span class="text-danger">*</span></label>
+                        <select class="form-select" id="trinh_do_pho_thong" required>
+                            <option value="">-- Chọn --</option>
+                            <option value="0">Chưa đi học</option>
+                            <option value="1">Chưa hoàn thành tiểu học</option>
+                            <option value="2">Hoàn thành tiểu học</option>
+                            <option value="3">Hoàn thành trung học cơ sở</option>
+                            <option value="4">Hoàn thành trung học phổ thông</option>
+                        </select>
+                        <div class="invalid-feedback">Chọn trình độ phổ thông.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label for="trinh_do_chuyen_mon" class="form-label">Trình độ chuyên môn <span
+                                class="text-danger">*</span></label>
+                        <select class="form-select" id="trinh_do_chuyen_mon" required>
+                            <option value="">-- Chọn --</option>
+                            <option value="0">Chưa qua đào tạo</option>
+                            <option value="1">Đào tạo nghề dưới 3 tháng</option>
+                            <option value="2">Sơ cấp nghề</option>
+                            <option value="3">Trung cấp nghề</option>
+                            <option value="4">Trung cấp chuyên nghiệp</option>
+                            <option value="5">Cao đẳng nghề</option>
+                            <option value="6">Cao đẳng</option>
+                            <option value="7">Đại học</option>
+                            <option value="8">Thạc sĩ</option>
+                            <option value="9">Tiến sĩ</option>
+                        </select>
+                        <div class="invalid-feedback">Chọn trình độ chuyên môn.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label for="chuyen_nganh" class="form-label">Chuyên ngành đào tạo</label>
+                        <select class="form-select" id="chuyen_nganh">
+                            <option value="">-- Chọn (nếu có) --</option>
+                            <optgroup label="Công nghệ kỹ thuật">
+                                <option value="5101">Công nghệ kỹ thuật cơ khí</option>
+                                <option value="5102">Công nghệ kỹ thuật điện, điện tử</option>
+                                <option value="5103">Công nghệ kỹ thuật xây dựng</option>
+                                <option value="5104">Công nghệ thông tin</option>
+                                <option value="5105">Công nghệ kỹ thuật hóa học</option>
+                            </optgroup>
+                            <optgroup label="Kỹ thuật">
+                                <option value="5201">Kỹ thuật cơ khí</option>
+                                <option value="5202">Kỹ thuật điện, điện tử</option>
+                                <option value="5203">Kỹ thuật xây dựng</option>
+                                <option value="5204">Công nghệ thông tin</option>
+                            </optgroup>
+                            <optgroup label="Kinh tế">
+                                <option value="5401">Kinh tế</option>
+                                <option value="5402">Quản trị kinh doanh</option>
+                                <option value="5403">Kế toán</option>
+                                <option value="5404">Tài chính - Ngân hàng</option>
+                            </optgroup>
+                            <optgroup label="Y tế">
+                                <option value="5601">Y khoa</option>
+                                <option value="5602">Dược học</option>
+                            </optgroup>
+                            <optgroup label="Luật & Giáo dục">
+                                <option value="5801">Luật</option>
+                                <option value="5901">Sư phạm Toán học</option>
+                                <option value="5902">Sư phạm Ngữ văn</option>
+                            </optgroup>
+                            <option value="9999">Khác</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h5>Tình trạng tham gia hoạt động kinh tế <span class="text-danger">*</span></h5>
+            <div class="mb-3">
+                <label for="tinh_trang_viec_lam" class="form-label">Tình trạng</label>
+                <select class="form-select" id="tinh_trang_viec_lam" onchange="toggleEmploymentDetails()" required>
+                    <option value="">-- Chọn tình trạng --</option>
+                    <option value="1">Có việc làm</option>
+                    <option value="2">Thất nghiệp</option>
+                    <option value="3">Không tham gia hoạt động kinh tế</option>
+                </select>
+                <div class="invalid-feedback">Vui lòng chọn tình trạng việc làm.</div>
+            </div>
+            <div id="employment-details" style="display: none;"></div>
+        </section>
+
+        <section class="form-section" id="employed-section" style="display: none;">
+            <h5>Người có việc làm</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="vi_tri_viec_lam" class="form-label">Vị thế việc làm <span
+                                class="text-danger">*</span></label>
+                        <select class="form-select" id="vi_tri_viec_lam" required>
+                            <option value="">-- Chọn vị thế --</option>
+                            <option value="Chủ cơ sở SXKD">Chủ cơ sở SXKD</option>
+                            <option value="Tự làm">Tự làm</option>
+                            <option value="Lao động gia đình">Lao động gia đình</option>
+                            <option value="Làm công ăn lương">Làm công ăn lương</option>
+                        </select>
+                        <div class="invalid-feedback">Vui lòng chọn vị thế việc làm.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="cong_viec" class="form-label">Công việc cụ thể <span
+                            class="text-danger">*</span></label>
+                    <select class="form-select" id="cong_viec" required>
+                        <option value="">-- Chọn --</option>
+                        <optgroup label="A - Nông nghiệp, lâm nghiệp và thủy sản">
+                            <option value="01">Trồng trọt, chăn nuôi, săn bắt</option>
+                            <option value="02">Lâm nghiệp và dịch vụ liên quan</option>
+                            <option value="03">Thủy sản</option>
+                        </optgroup>
+                        <optgroup label="B - Khai khoáng">
+                            <option value="05">Khai thác than</option>
+                            <option value="06">Khai thác dầu thô, khí tự nhiên</option>
+                            <option value="07">Khai thác quặng kim loại</option>
+                            <option value="08">Khai khoáng khác</option>
+                        </optgroup>
+                        <optgroup label="C - Công nghiệp chế biến, chế tạo">
+                            <option value="10">Chế biến thực phẩm</option>
+                            <option value="11">Sản xuất đồ uống</option>
+                            <option value="13">Sản xuất hàng dệt</option>
+                            <option value="14">May mặc</option>
+                            <option value="15">Sản xuất da</option>
+                            <option value="16">Chế biến gỗ</option>
+                            <option value="17">Sản xuất giấy</option>
+                            <option value="20">Sản xuất hóa chất</option>
+                            <option value="21">Sản xuất dược phẩm</option>
+                            <option value="26">Sản xuất điện tử, máy tính</option>
+                            <option value="27">Sản xuất thiết bị điện</option>
+                            <option value="28">Sản xuất máy móc</option>
+                            <option value="29">Sản xuất ô tô</option>
+                            <option value="31">Sản xuất đồ nội thất</option>
+                        </optgroup>
+                        <optgroup label="D - Sản xuất, phân phối điện, khí đốt">
+                            <option value="35">Sản xuất, phân phối điện, khí đốt</option>
+                        </optgroup>
+                        <optgroup label="E - Cung cấp nước, xử lý rác thải">
+                            <option value="36">Cung cấp nước</option>
+                            <option value="38">Xử lý rác thải, tái chế</option>
+                        </optgroup>
+                        <optgroup label="F - Xây dựng">
+                            <option value="41">Xây dựng nhà</option>
+                            <option value="42">Xây dựng công trình kỹ thuật</option>
+                            <option value="43">Xây dựng chuyên dụng</option>
+                        </optgroup>
+                        <optgroup label="G - Bán buôn, bán lẻ, sửa chữa">
+                            <option value="45">Bán, sửa chữa ô tô, mô tô</option>
+                            <option value="46">Bán buôn</option>
+                            <option value="47">Bán lẻ</option>
+                        </optgroup>
+                        <optgroup label="H - Vận tải kho bãi">
+                            <option value="49">Vận tải đường bộ, đường sắt</option>
+                            <option value="50">Vận tải đường thủy</option>
+                            <option value="52">Kho bãi, hỗ trợ vận tải</option>
+                        </optgroup>
+                        <optgroup label="I - Dịch vụ lưu trú, ăn uống">
+                            <option value="55">Dịch vụ lưu trú</option>
+                            <option value="56">Dịch vụ ăn uống</option>
+                        </optgroup>
+                        <optgroup label="J - Thông tin, truyền thông">
+                            <option value="58">Xuất bản</option>
+                            <option value="61">Viễn thông</option>
+                            <option value="62">Lập trình, tư vấn máy tính</option>
+                        </optgroup>
+                        <optgroup label="K - Tài chính, ngân hàng, bảo hiểm">
+                            <option value="64">Hoạt động tài chính</option>
+                            <option value="65">Bảo hiểm</option>
+                        </optgroup>
+                        <optgroup label="L - Kinh doanh bất động sản">
+                            <option value="68">Kinh doanh bất động sản</option>
+                        </optgroup>
+                        <optgroup label="M - Chuyên môn, khoa học, công nghệ">
+                            <option value="69">Pháp lý, kế toán</option>
+                            <option value="71">Kiến trúc, tư vấn kỹ thuật</option>
+                            <option value="72">Nghiên cứu khoa học</option>
+                        </optgroup>
+                        <optgroup label="N - Hành chính, dịch vụ hỗ trợ">
+                            <option value="78">Dịch vụ việc làm</option>
+                            <option value="79">Lữ hành, hỗ trợ du lịch</option>
+                        </optgroup>
+                        <optgroup label="P - Giáo dục và đào tạo">
+                            <option value="85">Giáo dục và đào tạo</option>
+                        </optgroup>
+                        <optgroup label="Q - Y tế, trợ giúp xã hội">
+                            <option value="86">Hoạt động y tế</option>
+                        </optgroup>
+                        <optgroup label="R - Nghệ thuật, giải trí">
+                            <option value="90">Sáng tác, nghệ thuật, giải trí</option>
+                            <option value="93">Thể thao, vui chơi</option>
+                        </optgroup>
+                        <optgroup label="S - Dịch vụ khác">
+                            <option value="96">Dịch vụ cá nhân khác</option>
+                        </optgroup>
+                    </select>
+                    <div class="invalid-feedback">Chọn công việc cụ thể.</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="noi_lam_viec" class="form-label">Nơi làm việc <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="noi_lam_viec" required>
+                        <div class="invalid-feedback">Vui lòng nhập nơi làm việc.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="lam_viec_tinh" class="form-label">Tỉnh/Thành phố nơi làm việc <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lam_viec_tinh" required>
+                    <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="lam_viec_phuongxa" class="form-label">Phường/Xã nơi làm việc <span
+                            class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lam_viec_phuongxa" required>
+                    <div class="invalid-feedback">Vui lòng nhập phường/xã.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="lam_viec_diachichitiet" class="form-label">Địa chỉ chi tiết nơi làm việc <span
+                            class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lam_viec_diachichitiet" maxlength="255" required>
+                    <div class="invalid-feedback">Vui lòng nhập địa chỉ chi tiết.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section" id="unemployed-section" style="display: none;">
+            <h5>Người thất nghiệp</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="thoi_gian_that_nghiep" class="form-label">Thời gian thất nghiệp <span
+                                class="text-danger">*</span></label>
+                        <select class="form-select" id="thoi_gian_that_nghiep" required>
+                            <option value="">-- Chọn thời gian --</option>
+                            <option value="Dưới 3 tháng">Dưới 3 tháng</option>
+                            <option value="Từ 3 tháng đến 1 năm">Từ 3 tháng đến 1 năm</option>
+                            <option value="Trên 1 năm">Trên 1 năm</option>
+                        </select>
+                        <div class="invalid-feedback">Vui lòng chọn thời gian thất nghiệp.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="nhu_cau_viec_lam" class="form-label">Nhu cầu việc làm <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="nhu_cau_viec_lam" required>
+                        <div class="invalid-feedback">Vui lòng nhập nhu cầu việc làm.</div>
+                    </div>
+                </div>
+                <div class="col-md-4 align-self-center">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="da_tung_lam_viec">
+                        <label class="form-check-label" for="da_tung_lam_viec">Đã từng làm việc</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section" id="not-participating-section" style="display: none;">
+            <h5>Không tham gia hoạt động kinh tế</h5>
+            <div class="mb-3">
+                <label for="ly_do" class="form-label">Lý do không tham gia <span class="text-danger">*</span></label>
+                <select class="form-select" id="ly_do" onchange="toggleStudyFields()" required>
+                    <option value="">-- Chọn lý do --</option>
+                    <option value="Đi học">Đi học</option>
+                    <option value="Hưu trí">Hưu trí</option>
+                    <option value="Nội trợ">Nội trợ</option>
+                    <option value="Khuyết tật">Khuyết tật</option>
+                    <option value="Khác">Khác</option>
+                </select>
+                <div class="invalid-feedback">Vui lòng chọn lý do.</div>
+            </div>
+        </section>
+
+        <section class="form-section" id="study-fields" style="display: none;">
+            <h5>Người đang đi học</h5>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label for="trinh_do_dao_tao" class="form-label">Trình độ đào tạo <span
+                                class="text-danger">*</span></label>
+                        <select class="form-select" id="trinh_do_dao_tao" required>
+                            <option value="">-- Chọn --</option>
+                            <option value="1">Đào tạo nghề dưới 3 tháng</option>
+                            <option value="2">Sơ cấp nghề</option>
+                            <option value="3">Trung cấp nghề</option>
+                            <option value="4">Trung cấp chuyên nghiệp</option>
+                            <option value="5">Cao đẳng nghề</option>
+                            <option value="6">Cao đẳng</option>
+                            <option value="7">Đại học</option>
+                            <option value="8">Thạc sĩ</option>
+                            <option value="9">Tiến sĩ</option>
+                        </select>
+                        <div class="invalid-feedback">Chọn trình độ đào tạo.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label for="chuyen_nganh_dao_tao" class="form-label">Chuyên ngành đào tạo <span
+                                class="text-danger">*</span></label>
+                        <select class="form-select" id="chuyen_nganh_dao_tao" required>
+                            <option value="">-- Chọn --</option>
+                            <optgroup label="Công nghệ kỹ thuật">
+                                <option value="5101">Công nghệ kỹ thuật cơ khí</option>
+                                <option value="5102">Công nghệ kỹ thuật điện, điện tử</option>
+                                <option value="5103">Công nghệ kỹ thuật xây dựng</option>
+                                <option value="5104">Công nghệ thông tin</option>
+                                <option value="5105">Công nghệ kỹ thuật hóa học</option>
+                            </optgroup>
+                            <optgroup label="Kỹ thuật">
+                                <option value="5201">Kỹ thuật cơ khí</option>
+                                <option value="5202">Kỹ thuật điện, điện tử</option>
+                                <option value="5203">Kỹ thuật xây dựng</option>
+                                <option value="5204">Công nghệ thông tin</option>
+                            </optgroup>
+                            <optgroup label="Kinh tế">
+                                <option value="5401">Kinh tế</option>
+                                <option value="5402">Quản trị kinh doanh</option>
+                                <option value="5403">Kế toán</option>
+                                <option value="5404">Tài chính - Ngân hàng</option>
+                            </optgroup>
+                            <optgroup label="Y tế">
+                                <option value="5601">Y khoa</option>
+                                <option value="5602">Dược học</option>
+                            </optgroup>
+                            <optgroup label="Luật & Giáo dục">
+                                <option value="5801">Luật</option>
+                                <option value="5901">Sư phạm Toán học</option>
+                                <option value="5902">Sư phạm Ngữ văn</option>
+                            </optgroup>
+                            <option value="9999">Khác</option>
+                        </select>
+                        <div class="invalid-feedback">Chọn chuyên ngành đào tạo.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label for="ngay_tot_nghiep" class="form-label">Thời gian dự kiến tốt nghiệp <span
+                                class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="ngay_tot_nghiep" required>
+                        <div class="invalid-feedback">Vui lòng chọn ngày tốt nghiệp hợp lệ.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center action-buttons">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save-fill"></i> Lưu
+            </button>
+            <button type="button" class="btn btn-danger" onclick="deleteEmployee()">
+                <i class="bi bi-trash3-fill"></i> Xóa
+            </button>
+            <button type="button" class="btn btn-secondary">
+                <i class="bi bi-box-arrow-right"></i> Thoát
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="jsonModal" tabindex="-1" aria-labelledby="jsonModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="jsonModalLabel">Dữ liệu đã lưu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <pre id="jsonOutput" class="json-output"></pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
