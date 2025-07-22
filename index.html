@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tra cứu thông tin người lao động</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -15,9 +16,15 @@
     <p class="text-center mb-3">Nhập thông tin để tra cứu.</p>
 
     <!-- Thanh tìm kiếm -->
-    <div class="mb-3">
+    <div class="mb-3 d-flex gap-2">
         <input type="text" class="form-control" id="searchInput"
                placeholder="Tìm theo họ tên, CCCD, hoặc tình trạng việc làm">
+        <button class="btn btn-primary d-flex align-items-center" id="searchBtn" title="Tìm kiếm">
+            <i class="bi bi-search"></i>
+        </button>
+        <a href="update.html" class="btn btn-success d-flex align-items-center" id="addBtn" title="Thêm mới">
+            <i class="bi bi-plus-lg"></i>
+        </a>
     </div>
 
     <!-- Danh sách người lao động -->
@@ -42,7 +49,7 @@
     </div>
 </div>
 
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>

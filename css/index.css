@@ -1,76 +1,32 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #e0f7fa, #fff3e0);
-    user-select: none;
-}
-.container {
-    max-width: 1200px;
-    padding: 20px;
-}
-.form-section {
-    background: linear-gradient(145deg, #ffffff, #f0f4ff);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-    transition: transform 0.2s;
-}
-.form-section:hover {
-    transform: translateY(-2px);
-}
-h1 {
-    color: #1e88e5;
-    font-size: 1.8rem;
-    font-weight: 500;
-    background: linear-gradient(90deg, #1e88e5, #ff8f00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-p.text-center {
-    color: #555;
-    font-size: 0.9rem;
-}
-h5 {
-    color: #d81b60;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    border-left: 4px solid #ff8f00;
-    padding-left: 8px;
-}
-.form-control {
-    border: 1px solid #90caf9;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    background-color: #fff;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-.form-control:focus {
-    border-color: #1e88e5;
-    box-shadow: 0 0 8px rgba(30, 136, 229, 0.3);
-}
 .table {
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
 }
+
 .table th {
     background: linear-gradient(45deg, #1e88e5, #42a5f5);
     color: #fff;
 }
+
 .table-hover tbody tr:hover {
     background-color: #e3f2fd;
 }
+
 #searchInput {
     border: 1px solid #90caf9;
     border-radius: 6px;
 }
+
 #searchInput:focus {
     border-color: #1e88e5;
     box-shadow: 0 0 8px rgba(30, 136, 229, 0.3);
 }
+
 .pagination .page-link {
     color: #1e88e5;
 }
+
 .pagination .page-item.active .page-link {
     background-color: #1e88e5;
     border-color: #1e88e5;
