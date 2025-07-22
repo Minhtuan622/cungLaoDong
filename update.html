@@ -115,7 +115,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" id="dan_toc" onchange="toggleEthnicityField()">
+                        <input class="form-check-input" type="checkbox" id="dan_toc">
                         <label class="form-check-label" for="dan_toc">Dân tộc thiểu số</label>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
             <h5>Tình trạng tham gia hoạt động kinh tế <span class="text-danger">*</span></h5>
             <div class="mb-3">
                 <label for="tinh_trang_viec_lam" class="form-label">Tình trạng</label>
-                <select class="form-select" id="tinh_trang_viec_lam" onchange="toggleEmploymentDetails()" required>
+                <select class="form-select" id="tinh_trang_viec_lam" required>
                     <option value="">-- Chọn tình trạng --</option>
                     <option value="1">Có việc làm</option>
                     <option value="2">Thất nghiệp</option>
@@ -513,6 +513,10 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"
+></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/update.js"></script>
 </body>

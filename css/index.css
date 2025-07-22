@@ -27,7 +27,12 @@
     color: #1e88e5;
 }
 
-.pagination .page-item.active .page-link {
+.pagination .page-item.active {
+    border-radius: 6px;
     background-color: #1e88e5;
     border-color: #1e88e5;
+}
+
+.page-item.active .page-link {
+    color: white;
 }
