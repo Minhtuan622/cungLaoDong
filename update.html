@@ -16,7 +16,7 @@
         <p class="text-muted">Vui lòng điền đầy đủ thông tin bên dưới.</p>
     </header>
     <form id="laborForm" novalidate>
-        <section class="form-section">
+        <section class="form-section shadow-sm">
             <h5>Thông tin cá nhân</h5>
             <div class="row">
                 <div class="col-md-6 col-xl-3 mb-3">
@@ -54,14 +54,19 @@
                         <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
                     </div>
                     <div class="col-md-3 mb-3">
+                        <label for="thuong_tru_cu" class="form-label">Tra cứu danh mục mới</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="thuong_tru_cu">
+                            <button type="button" class="input-group-text"
+                                    data-bs-toggle="modal" data-bs-target="#modalDonViHanhChinh">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
                         <label for="thuong_tru_phuongxa" class="form-label">Phường/Xã <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="thuong_tru_phuongxa" required>
                         <div class="invalid-feedback">Vui lòng nhập phường/xã.</div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="thuong_tru_cu" class="form-label">Cũ</label>
-                        <input type="text" class="form-control" id="thuong_tru_cu" required>
-                        <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="thuong_tru_diachichitiet" class="form-label">Địa chỉ chi tiết <span
@@ -82,13 +87,18 @@
                         <input type="text" class="form-control" id="tam_tru_tinh">
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="tam_tru_phuongxa" class="form-label">Phường/Xã</label>
-                        <input type="text" class="form-control" id="tam_tru_phuongxa">
+                        <label for="tam_tru_cu" class="form-label">Tra cứu danh mục mới</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="tam_tru_cu">
+                            <button type="button" class="input-group-text"
+                                    data-bs-toggle="modal" data-bs-target="#modalDonViHanhChinh">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="tam_tru_cu" class="form-label">Cũ</label>
-                        <input type="text" class="form-control" id="tam_tru_cu" required>
-                        <div class="invalid-feedback">Vui lòng nhập tỉnh/thành phố.</div>
+                        <label for="tam_tru_phuongxa" class="form-label">Phường/Xã</label>
+                        <input type="text" class="form-control" id="tam_tru_phuongxa">
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="tam_tru_diachichitiet" class="form-label">Địa chỉ chi tiết</label>
@@ -98,7 +108,7 @@
             </div>
         </section>
 
-        <section class="form-section">
+        <section class="form-section shadow-sm">
             <h5>Đối tượng ưu tiên (nếu có)</h5>
             <div class="row">
                 <div class="col-lg-4">
@@ -127,7 +137,7 @@
             </div>
         </section>
 
-        <section class="form-section">
+        <section class="form-section shadow-sm">
             <h5>Trình độ giáo dục</h5>
             <div class="row">
                 <div class="col-lg-4">
@@ -204,7 +214,7 @@
             </div>
         </section>
 
-        <section class="form-section">
+        <section class="form-section shadow-sm">
             <h5>Tình trạng tham gia hoạt động kinh tế <span class="text-danger">*</span></h5>
             <div class="mb-3">
                 <label for="tinh_trang_viec_lam" class="form-label">Tình trạng</label>
@@ -219,7 +229,7 @@
             <div id="employment-details" style="display: none;"></div>
         </section>
 
-        <section class="form-section" id="employed-section" style="display: none;">
+        <section class="form-section shadow-sm" id="employed-section" style="display: none;">
             <h5>Người có việc làm</h5>
             <div class="row">
                 <div class="col-md-4">
@@ -361,7 +371,7 @@
             </div>
         </section>
 
-        <section class="form-section" id="unemployed-section" style="display: none;">
+        <section class="form-section shadow-sm" id="unemployed-section" style="display: none;">
             <h5>Người thất nghiệp</h5>
             <div class="row">
                 <div class="col-md-4">
@@ -394,7 +404,7 @@
             </div>
         </section>
 
-        <section class="form-section" id="not-participating-section" style="display: none;">
+        <section class="form-section shadow-sm" id="not-participating-section" style="display: none;">
             <h5>Không tham gia hoạt động kinh tế</h5>
             <div class="mb-3">
                 <label for="ly_do" class="form-label">Lý do không tham gia <span class="text-danger">*</span></label>
@@ -410,7 +420,7 @@
             </div>
         </section>
 
-        <section class="form-section" id="study-fields" style="display: none;">
+        <section class="form-section shadow-sm" id="study-fields" style="display: none;">
             <h5>Người đang đi học</h5>
             <div class="row">
                 <div class="col-lg-4">
@@ -505,6 +515,50 @@
             </div>
             <div class="modal-body">
                 <pre id="jsonOutput" class="json-output"></pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDonViHanhChinh" tabindex="-1" aria-labelledby="modalDonViHanhChinhLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDonViHanhChinhLabel">Kết quả tra cứu danh mục đơn vị hành chính
+                    mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body">
+                <div id="donViHanhChinhResult">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-center">STT</th>
+                            <th>Tên đơn vị mới</th>
+                            <th>Mã đơn vị</th>
+                            <th>Loại đơn vị</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="text-center">1</td>
+                            <td>Phường Minh Khai</td>
+                            <td>12345</td>
+                            <td>Phường</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2</td>
+                            <td>Phường Trần Hưng Đạo</td>
+                            <td>67890</td>
+                            <td>Phường</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>

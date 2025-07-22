@@ -19,7 +19,7 @@ function displayLaborList(page = 1) {
     paginatedData.forEach((labor, index) => {
         $laborTable.append(`
             <tr>
-                <td>${start + index + 1}</td>
+                <td class="text-center">${start + index + 1}</td>
                 <td>${labor.ho_ten}</td>
                 <td>${labor.cccd}</td>
                 <td>${labor.ngay_sinh}</td>
