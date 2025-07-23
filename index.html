@@ -19,7 +19,8 @@
             <i class="bi bi-people-fill me-2"></i>
             <span>Quản lý Lao động</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,15 +36,31 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-gear me-1"></i>Cài đặt</a>
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" type="button"
+                            id="user-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle me-2"></i>
+                        <span class="username">Tên người dùng</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-dropdown">
+                        <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
+                        <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </nav>
 
 <div class="container my-3">
-    <h1 class="text-center mb-2">TRA CỨU THÔNG TIN NGƯỜI LAO ĐỘNG</h1>
-    <p class="text-center mb-3">Nhập thông tin để tra cứu.</p>
+    <header class="text-center mb-4">
+        <h1>TRA CỨU THÔNG TIN NGƯỜI LAO ĐỘNG</h1>
+        <p class="text-muted">Nhập thông tin để tra cứu.</p>
+    </header>
 
     <!-- Thanh tìm kiếm -->
     <div class="mb-3 d-flex gap-2">
