@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xem thông tin người lao động</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/show.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <i class="bi bi-people-fill me-2"></i>
+            <span>Quản lý Lao động</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html"><i class="bi bi-house-door me-1"></i>Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="update.html"><i class="bi bi-person-plus me-1"></i>Thêm mới</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-bar-chart me-1"></i>Thống kê</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" type="button"
+                            id="user-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle me-2"></i>
+                        <span class="username">Tên người dùng</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-dropdown">
+                        <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
+                        <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container my-3">
+    <h1 class="text-center mb-2">XEM THÔNG TIN NGƯỜI LAO ĐỘNG</h1>
+    <p class="text-center mb-3">Thông tin chi tiết của người lao động.</p>
+
+    <!-- Thông tin người lao động -->
+    <div class="form-section shadow-sm">
+        <h5>Thông tin cá nhân</h5>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <span class="info-label">Họ và tên:</span>
+                <span class="info-value" id="ho_ten">Nguyễn Văn A</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <span class="info-label">Ngày sinh:</span>
+                <span class="info-value" id="ngay_sinh">01/01/1990</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <span class="info-label">Giới tính:</span>
+                <span class="info-value" id="gioi_tinh">Nam</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <span class="info-label">Số CCCD:</span>
+                <span class="info-value" id="cccd">123456789012</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Tỉnh/TP thường trú:</span>
+                <span class="info-value" id="thuong_tru_tinh">Hà Nội</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Phường/Xã:</span>
+                <span class="info-value" id="thuong_tru_phuongxa">Quận Ba Đình</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Địa chỉ chi tiết:</span>
+                <span class="info-value" id="thuong_tru_diachichitiet">Phố Láng Hạ</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Tỉnh/TP tạm trú:</span>
+                <span class="info-value" id="tam_tru_tinh">TP.HCM</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Phường/Xã:</span>
+                <span class="info-value" id="tam_tru_phuongxa">Quận 1</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Địa chỉ chi tiết:</span>
+                <span class="info-value" id="tam_tru_diachichitiet">Phố Nguyễn Huệ</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section shadow-sm">
+        <h5>Đối tượng ưu tiên</h5>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Người khuyết tật:</span>
+                <span class="info-value" id="khuyt_tat">Không</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Hộ nghèo, cận nghèo:</span>
+                <span class="info-value" id="ho_ngheo">Không</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Dân tộc thiểu số:</span>
+                <span class="info-value" id="dan_toc">Không</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section shadow-sm">
+        <h5>Trình độ giáo dục</h5>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Trình độ phổ thông:</span>
+                <span class="info-value" id="trinh_do_pho_thong">Hoàn thành THPT</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Trình độ chuyên môn:</span>
+                <span class="info-value" id="trinh_do_chuyen_mon">Đại học</span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="info-label">Chuyên ngành đào tạo:</span>
+                <span class="info-value" id="chuyen_nganh">Công nghệ thông tin</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section shadow-sm">
+        <h5>Tình trạng tham gia hoạt động kinh tế</h5>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <span class="info-label">Tình trạng:</span>
+                <span class="info-value" id="tinh_trang_viec_lam">Có việc làm</span>
+            </div>
+        </div>
+        <div id="employed-details">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <span class="info-label">Vị thế việc làm:</span>
+                    <span class="info-value" id="vi_tri_viec_lam">Làm công ăn lương</span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <span class="info-label">Công việc cụ thể:</span>
+                    <span class="info-value" id="cong_viec">Lập trình viên</span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <span class="info-label">Nơi làm việc:</span>
+                    <span class="info-value" id="noi_lam_viec">Công ty XYZ</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <span class="info-label">Tỉnh/TP làm việc:</span>
+                    <span class="info-value" id="lam_viec_tinh">Hà Nội</span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <span class="info-label">Phường/Xã:</span>
+                    <span class="info-value" id="lam_viec_phuongxa">Quận Hoàn Kiếm</span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <span class="info-label">Địa chỉ chi tiết:</span>
+                    <span class="info-value" id="lam_viec_diachichitiet">Phố Hàng Bông</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

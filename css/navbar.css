@@ -42,6 +42,30 @@
     background-color: rgba(255, 255, 255, 0.15);
 }
 
+.user-profile-container .btn-user {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.user-profile-container .btn-user:hover, .user-profile-container .btn-user:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-profile-container .username {
+    margin-left: 0.5rem;
+    font-weight: 500;
+}
+
+.user-profile-container .bi-person-circle {
+    font-size: 1.4rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
     .navbar-nav {

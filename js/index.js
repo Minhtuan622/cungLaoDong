@@ -30,8 +30,8 @@ function displayLaborList(page = 1) {
                             <i class="bi bi-list"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-1"></i> Xem</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-1"></i> Sửa</a></li>
+                            <li><a class="dropdown-item" href="../show.html"><i class="bi bi-eye me-1"></i> Xem</a></li>
+                            <li><a class="dropdown-item" href="../update.html"><i class="bi bi-pencil me-1"></i> Sửa</a></li>
                             <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-1"></i> Xóa</a></li>
                         </ul>
                     </div>
